@@ -1,0 +1,18 @@
+﻿using CsvHelper.Configuration;
+
+namespace TesteCSV
+{
+    public class AtendimentoMap : ClassMap<Atendimento>
+    {
+        //AQUI VAI AS PROPRIEDADES MAPEADAS NA CLASSE ATENDIMENTO
+        public AtendimentoMap() 
+        {
+            Map(m => m.Id).Name("id");
+            Map(m => m.NomeClinica).Name("nome_clinica");
+            Map(m => m.NomePaciente).Name("nome_paciente");
+            Map(m => m.DataNascimento).Name("data_nascimento");
+            Map(m => m.DataAtendimento).Name("data_atendimento");
+            Map(m => m.Especialidade).Name("especialidade");
+        }
+    }
+}
