@@ -10,6 +10,7 @@ namespace TesteCSV
     public class Atendimento
     {
         //AQUI VAI OS MOMES DAS COLUNAS DO SEU CSV
+        //Classe de propriedades. É o nome desta classe que será referenciada no GetRecords<>()
         
         [Name("id")]
         public int Id { get; set; }
