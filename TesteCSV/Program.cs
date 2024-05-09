@@ -14,7 +14,16 @@ public class Program
             Delimiter= ",",
         };
 
-        using (var reader = new StreamReader("C:\\Projetos\\estudoCSV.csv"))
+        var filePath = "C:\\Projetos\\estudoCSV.csv";
+        var folder = Path.GetDirectoryName(filePath);
+
+        if(!Directory.Exists(folder))
+            Directory.CreateDirectory(folder);
+
+        if(!File.Exists(filePath))
+            File.Create(filePath).Close();
+
+        using (var reader = new StreamReader(filePath))
         {
             using (var csv = new CsvReader(reader, config))
             {
@@ -23,7 +32,6 @@ public class Program
 
                 foreach (var atendimento in atendimentos)
                     Console.WriteLine($"Paciente: {atendimento.NomePaciente}, Dt Nascimento: {atendimento.DataNascimento} ,Clinica: {atendimento.NomeClinica}");
-
             }
 
         }
